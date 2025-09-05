@@ -1,0 +1,68 @@
+{% extends 'hospital/homebase.html' %} {% load static %} {% block content %}
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    
+    .jumbotron {
+        height: 100vh;
+        /* Full viewport height */
+        margin: 0;
+        background-image: url('{% static "images/bg.jpg" %}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Vertically center content */
+        align-items: center;
+        /* Horizontally center content */
+        color: white;
+        text-align: center;
+    }
+    
+    .glow {
+        font-size: 50px;
+        color: white;
+        animation: glow 1s ease-in-out infinite alternate;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+        -moz-animation: glow 1s ease-in-out infinite alternate;
+    }
+    
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+        }
+        to {
+            text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+    }
+    
+    @-webkit-keyframes glow {
+        from {
+            text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+        }
+        to {
+            text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+    }
+    
+    h3 {
+        color: white;
+        margin-top: 20px;
+        font-size: 30px;
+    }
+</style>
+
+<div class="jumbotron">
+    <h5 class="glow">You’ll Love the Way We Care for You</h5>
+    <h3>Emergency?</h3>
+</div>
+
+{% endblock content %}
