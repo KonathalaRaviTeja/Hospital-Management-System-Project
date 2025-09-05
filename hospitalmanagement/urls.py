@@ -6,7 +6,7 @@ NIT Agartala
 from django.contrib import admin
 from django.urls import path
 from hospital import views
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -18,7 +18,7 @@ urlpatterns = [
     path('aboutus/', views.aboutus_view, name='aboutus'),
     path('contactus/', views.contactus_view, name='contactus'),
 
-    # Role Selection Pages (updated to use the role_click_view)
+    # Role Selection Pages
     path('adminclick/', views.role_click_view, {'role': 'admin'}, name='adminclick'),
     path('doctorclick/', views.role_click_view, {'role': 'doctor'}, name='doctorclick'),
     path('patientclick/', views.role_click_view, {'role': 'patient'}, name='patientclick'),
@@ -46,7 +46,9 @@ urlpatterns = [
 
     # After login and logout
     path('afterlogin/', views.afterlogin_view, name='afterlogin'),
-    path('logout/', LogoutView.as_view(next_page='home'), name='logout'),
+
+    # ✅ Fixed Logout (custom function supports GET request)
+    path('logout/', views.custom_logout, name='logout'),
 
     # Admin Dashboard & Management
     path('admin-dashboard/', views.admin_dashboard_view, name='admin-dashboard'),
