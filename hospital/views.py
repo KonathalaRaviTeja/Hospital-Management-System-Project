@@ -705,3 +705,10 @@ def contactus_view(request):
             # send_mail(subject, message, from_email, recipient_list)
             return render(request, 'hospital/contactus_success.html', {'name': name})
     return render(request, 'hospital/contactus.html', {'form': sub})
+
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
+def custom_logout(request):
+    logout(request)
+    return redirect('home')
